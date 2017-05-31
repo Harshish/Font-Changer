@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "version": "1.0",
+    "name": "Font Style Changer",
+    "description": "Changes font style on specific page",
+
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+
+    "page_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Font Style"
+    },
+
+    "background": {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    },
+
+    "content_scripts": [{
+        "matches": ["https://developer.chrome.com/*"],
+        "js": ["content.js", "jquery-3.2.1.min.js"],
+        "css": ["content.css"]
+    }],
+
+    "permissions": [
+        "tabs",
+        "https://developer.chrome.com/*"
+    ]
+}
